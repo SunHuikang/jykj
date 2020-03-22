@@ -1,0 +1,17 @@
+环境安装
+pip3 install -r requirements.txt或
+pip install -r requirements.txt
+
+运行命令
+python face_stream.py <视频路径或url> <人脸照片文件夹路径> <视频流端口号> <是否显示人脸（1表示显示，0表示不显示）>
+
+例如：
+python face_stream.py 1.mp4 face_data 8080 1
+
+注意：参数顺序不能改变
+
+查看视频流地址：
+http://<地址>:<端口号>/mjpg
+
+JSON流地址：
+http://<地址>:<端口号>/json

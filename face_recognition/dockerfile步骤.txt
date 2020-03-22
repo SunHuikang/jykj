@@ -1,0 +1,57 @@
+基础镜像: ubuntu 16.04 LTS
+1.换时区
+2.装中文语言包，设置默认语言
+3.装cmake
+4.装python3的pip
+5.在pip3中按照requirement装包
+6.将工程文件夹face_recognitionfang拷贝到docker的/opt路径下，并在/opt路径下新建一个face_data文件夹
+
+
+
+
+1.换时区
+apt update
+apt install tzdata
+ln -sf /usr/share/zoneinfo/Asia/ShangHai /etc/localtime
+echo "Asia/Shanghai" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
+
+参考：
+https://www.cnblogs.com/z-ye/p/11355422.html
+https://blog.csdn.net/xo19882011/article/details/83789702
+
+2.装中文语言包，设置默认语言
+
+
+3.装cmake
+apt-get install build-essential 我装了 不知道有没有用
+apt-get install cmake
+
+4.装python3的pip
+apt-get install -y python3
+apt-get install -y python3-pip
+
+
+5.在pip3中按照requirement装包
+pip3 install --upgrade pip
+pip3 install Click==7.0
+pip3 install dlib==19.19.0
+
+pip3 install face-recognition==1.3.0
+pip3 install face-recognition-models==0.3.0    ???Requirement already satisfied: face-recognition-models==0.3.0 in /usr/local/lib/python3.5/dist-packages (0.3.0)
+pip3 install numpy==1.18.1
+pip3 install opencv-contrib-python-headless==4.2.0.32
+pip3 install opencv-python==3.3.1.11
+pip3 install Pillow==7.0.0         ???Requirement already satisfied: Pillow==7.0.0 in /usr/local/lib/python3.5/dist-packages (7.0.0)
+
+
+
+
+docker cp /Users/sunhuikang/Code/obstacle_detection/dingbojian/docker/face_recognition priceless_banzai:/opt
+
+
+
+apt-get install libsm6
+apt-get install libglib2.0-dev
+apt-get install libxrender1
+apt-get install libxext-dev
